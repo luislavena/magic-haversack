@@ -1,0 +1,12 @@
+services:
+  builder:
+    build:
+      context: .
+      dockerfile: docker/builder.dockerfile
+    working_dir: /app
+
+    # Set these env variables using `export FIXUID=$(id -u) FIXGID=$(id -g)`
+    user: ${FIXUID:-1000}:${FIXGID:-1000}
+
+    volumes:
+      - .:/app:cached
