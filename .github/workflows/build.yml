@@ -1,0 +1,28 @@
+---
+name: Build
+on:
+  - push
+  - pull_request
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2"
+          bundler-cache: true
+
+      - name: fetch all packages
+        run: bundle exec rake fetch:all
+
+      - name: generate package
+        run: bundle exec rake package
+
+      - name: archive actifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: generated-package
+          path: pkg/*.tar.xz
+          retention-days: 5
