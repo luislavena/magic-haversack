@@ -14,6 +14,12 @@ jobs:
           ruby-version: "3.2"
           bundler-cache: true
 
+      - name: restore cached downloads
+        id: cache-download-restore
+        uses: actions/cache/restore@v3
+        with:
+          path: downloads
+
       - name: fetch all packages
         run: bundle exec rake fetch:all
 
@@ -26,3 +32,10 @@ jobs:
           name: generated-package
           path: pkg/*.tar.xz
           retention-days: 5
+
+      - name: save downloads in cache
+        id: cache-download-sav
+        uses: actions/cache/save@v3
+        with:
+          path: downloads
+          key: ${{ steps.cache-download-restore.outputs.cache-primary-key }}
