@@ -2,6 +2,7 @@
 
 require "digest/sha1"
 require "mini_portile2"
+require "rake/packagetask"
 require "yaml"
 
 # extend MiniPortile for local compilation
@@ -14,7 +15,10 @@ SUPPORTED_PLATFORMS = %w(
   x86_64-apple-darwin20.0
 )
 
-directory "ports"
+HAVERSACK_VERSION = "0.1.0"
+
+directory "downloads"
+directory "lib"
 directory "tmp"
 
 # load libs.yml
@@ -28,15 +32,21 @@ libs.each do |lib|
     port = CustomPortile.new(lib["name"], lib["version"])
     port.host = platform
 
+    downloads_dir = "downloads/#{platform}"
+    lib_dir = "lib/#{platform}"
+    pkg_dir = File.join(lib_dir, "pkgconfig")
+
+    directory downloads_dir
+    directory pkg_dir
+
     if found = binaries.find { |b| b["platform"] == platform }
       short_platform = platform.split("-").first
 
-      # save port path before changing target
-      port_path = port.port_path
-      port.target = "ports/#{platform}"
+      # save path before changing target
+      tmp_port_path = File.join("tmp", port.port_path)
+      port.target = downloads_dir
 
-      desc "Fetch #{lib["name"]} #{lib["version"]}"
-      task "fetch:#{platform}:#{lib["name"]}" => ["tmp"] do
+      task "fetch:#{platform}:#{lib["name"]}" => ["tmp", downloads_dir, pkg_dir] do
         # determine single or multiple files present
         if url = found["url"]
           port.files << {
@@ -55,18 +65,42 @@ libs.each do |lib|
           end
         end
 
-        checkpoint = "tmp/.#{port.name}-#{port.version}-#{port.host}.download"
+        checkpoint_download = "tmp/.#{port.host}-#{port.name}-#{port.version}.download"
 
-        unless File.exist?(checkpoint)
+        unless File.exist?(checkpoint_download)
           port.download unless port.downloaded?
-          mkdir_p port_path
+          mkdir_p tmp_port_path
 
           port.files.each do |file|
             file_path = File.expand_path(File.basename(file[:url]), port.archives_path)
-            sh "tar -tf #{file_path} 2>#{IO::NULL} | grep -E '#{lib["files"].join("|")}' | xargs -I '{}' tar -xf #{file_path} -C #{port_path} --no-anchored '{}' 2>#{IO::NULL}"
+            sh "tar -tf #{file_path} 2>#{IO::NULL} | grep -E '#{lib["files"].join("|")}' | xargs -I '{}' tar -xf #{file_path} -C #{tmp_port_path} --no-anchored '{}' 2>#{IO::NULL}"
           end
 
-          FileUtils.touch(checkpoint)
+          FileUtils.touch(checkpoint_download)
+        end
+
+        # collect SHA1 of all `.a` and `.pc` extracted files
+        files_digest = Digest::SHA1.new
+        port_files = Dir.glob("#{tmp_port_path}/**/*.{a,pc}")
+        port_files.each do |file|
+          files_digest.update File.binread(file)
+        end
+
+        checkpoint_extract = "tmp/.#{port.host}-#{port.name}-#{port.version}-#{files_digest.hexdigest}.extract"
+
+        unless File.exist?(checkpoint_extract)
+          port_files.each do |file|
+            path = File.extname(file) == ".pc" ? pkg_dir : lib_dir
+            target_file = File.join(path, File.basename(file))
+
+            if File.exist?(target_file) && !FileUtils.compare_file(file, target_file)
+              rm target_file, force: true
+            end
+
+            cp file, target_file
+          end
+
+          FileUtils.touch(checkpoint_extract)
         end
       end
     end
@@ -74,56 +108,17 @@ libs.each do |lib|
     desc "Fetch all for '#{platform}'"
     task "fetch:#{platform}" => ["fetch:#{platform}:#{port.name}"]
 
-    desc "Package all for '#{platform}'"
-    task "package:#{platform}" => ["fetch:#{platform}:#{port.name}"]
+    desc "Fetch all"
+    task "fetch:all" => ["fetch:#{platform}"]
   end
 end
 
-SUPPORTED_PLATFORMS.each do |platform|
-  target_dir = File.join("pkg", platform)
-  lib_dir = File.join(target_dir, "lib")
-  pkg_dir = File.join(lib_dir, "pkgconfig")
+Rake::PackageTask.new("magic-haversack", HAVERSACK_VERSION) do |t|
+  t.need_tar_xz = true
 
-  directory pkg_dir
-
-  task "package:#{platform}" => [pkg_dir] do
-    pkg_digest = Digest::SHA1.new
-
-    # collect all the `.a` files
-    Dir.glob("ports/#{platform}/**/*.a").each do |a_lib|
-      basename = File.basename(a_lib)
-      target_file = File.join(lib_dir, basename)
-
-      unless File.exist?(target_file)
-        cp a_lib, target_file
-      end
-
-      pkg_digest.update File.binread(a_lib)
-    end
-
-    # collect all the `.pc` files
-    Dir.glob("ports/#{platform}/**/*.pc").each do |pc_file|
-      basename = File.basename(pc_file)
-      target_file = File.join(pkg_dir, basename)
-
-      unless File.exist?(target_file)
-        cp pc_file, target_file
-      end
-
-      pkg_digest.update File.binread(pc_file)
-    end
-
-    checkpoint = "tmp/.#{platform}-#{pkg_digest.hexdigest}.package"
-    unless File.exist?(checkpoint)
-      # generate platform.tar.xz
-      sh "tar -C pkg -cJf pkg/#{platform}.tar.xz #{platform}"
-      touch checkpoint
-    end
-  end
-
-  desc "Fetch everything"
-  task "fetch:all" => ["fetch:#{platform}"]
-
-  desc "Package everything"
-  task "package:all" => ["package:#{platform}"]
+  globs = SUPPORTED_PLATFORMS.map { |platform| "lib/#{platform}/**/*.{a,pc}" }
+  t.package_files.include(globs)
+  t.package_files.include("bin/*-cc")
 end
+
+task "package" => ["fetch:all"]
