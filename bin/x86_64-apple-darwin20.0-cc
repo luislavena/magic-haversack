@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+
+TARGET_TRIPLET="x86_64-macos.11-none"
+TARGET_PLATFORM="x86_64-apple-darwin20.0"
+
+source ../libexec/realpath.sh
+
+SCRIPT_PATH=$(realpath "$0")
+SCRIPT_DIR=$(dirname $SCRIPT_PATH)
+SCRIPT_PARENT=$(dirname $SCRIPT_DIR)
+
+LIBS_ROOT="${SCRIPT_PARENT}/lib"
+
+LINK_OPTS="-L${LIBS_ROOT}/${TARGET_PLATFORM}"
+
+# detect if MacOSX SDK is present and use it
+if [ -d "${LIBS_ROOT}/MacOSX11.sdk" ]; then
+	LINK_OPTS="${LINK_OPTS} -L${LIBS_ROOT}/MacOSX11.sdk/usr/lib"
+fi
+
+exec zig cc -target ${TARGET_TRIPLET} ${LINK_OPTS} "$@"

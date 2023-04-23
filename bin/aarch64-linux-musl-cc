@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+
+TARGET_TRIPLET="aarch64-linux-musl"
+TARGET_PLATFORM="${TARGET_TRIPLET}"
+
+source ../libexec/realpath.sh
+
+SCRIPT_PATH=$(realpath "$0")
+SCRIPT_DIR=$(dirname $SCRIPT_PATH)
+SCRIPT_PARENT=$(dirname $SCRIPT_DIR)
+
+LIBS_ROOT="${SCRIPT_PARENT}/lib"
+
+LINK_OPTS="-L${LIBS_ROOT}/${TARGET_PLATFORM}"
+
+exec zig cc -target ${TARGET_TRIPLET} ${LINK_OPTS} "$@"

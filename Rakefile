@@ -117,7 +117,8 @@ Rake::PackageTask.new("magic-haversack", HAVERSACK_VERSION) do |t|
   t.need_tar_xz = true
 
   globs = SUPPORTED_PLATFORMS.map { |platform| "lib/#{platform}/**/*.{a,pc}" }
-  t.package_files.include globs
+  t.package_files.include(globs)
+  t.package_files.include("bin/*", "libexec/*.sh")
 end
 
 task "package" => ["fetch:all"]
