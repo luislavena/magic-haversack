@@ -137,6 +137,7 @@ _bsd_stat_readlink() {
 
 TARGET_TRIPLET="aarch64-macos.11-none"
 TARGET_PLATFORM="aarch64-apple-darwin20.0"
+SDK_VERSION="${SDK_VERSION:-11}"
 
 SCRIPT_PATH=$(realpath "$0")
 SCRIPT_DIR=$(dirname $SCRIPT_PATH)
@@ -147,8 +148,17 @@ LIBS_ROOT="${SCRIPT_PARENT}/lib"
 LINK_OPTS="-L${LIBS_ROOT}/${TARGET_PLATFORM}"
 
 # detect if MacOSX SDK is present and use it
-if [ -d "${LIBS_ROOT}/MacOSX11.sdk" ]; then
-	LINK_OPTS="${LINK_OPTS} -L${LIBS_ROOT}/MacOSX11.sdk/usr/lib"
+if [ -d "${LIBS_ROOT}/MacOSX${SDK_VERSION}.sdk" ]; then
+    LINK_OPTS="${LINK_OPTS} -L${LIBS_ROOT}/MacOSX${SDK_VERSION}.sdk/usr/lib"
+else
+    # check if running under MacOSX and check SDK version
+    if hash xcrun 2>/dev/null; then
+        _SDK_VERSION=$(xcrun --sdk macosx --show-sdk-version)
+        if [ "${_SDK_VERSION:0:2}" == "${SDK_VERSION}" ]; then
+            _SDK_PATH=$(xcrun --sdk macosx --show-sdk-path)
+            LINK_OPTS="${LINK_OPTS} -L${_SDK_PATH}/usr/lib"
+        fi
+    fi
 fi
 
 exec zig cc -target ${TARGET_TRIPLET} ${LINK_OPTS} "$@"
