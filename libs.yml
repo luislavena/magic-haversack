@@ -17,8 +17,8 @@
       url: https://ghcr.io/v2/homebrew/core/bdw-gc/blobs/sha256:162892760401052a1a6d6cb183bb6683c18905377489b9bf50151a80c816f967
       sha256: "162892760401052a1a6d6cb183bb6683c18905377489b9bf50151a80c816f967"
     - platform: x86_64-apple-darwin20.0
-      url: https://ghcr.io/v2/homebrew/core/bdw-gc/blobs/sha256:162892760401052a1a6d6cb183bb6683c18905377489b9bf50151a80c816f967
-      sha256: "162892760401052a1a6d6cb183bb6683c18905377489b9bf50151a80c816f967"
+      url: https://ghcr.io/v2/homebrew/core/bdw-gc/blobs/sha256:a55727cc7d7a7dbc8f7e61aca70a94dc07dcaccbfbffc5f92fcdc77dec64eaa7
+      sha256: "a55727cc7d7a7dbc8f7e61aca70a94dc07dcaccbfbffc5f92fcdc77dec64eaa7"
 
 - name: gmp
   version: "6.2.1"
