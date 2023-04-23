@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     tags:
-      - "v*"
+      - 'v*'
 
 jobs:
   build:
@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.2"
+          ruby-version: '3.2'
           bundler-cache: true
 
       - name: fetch all packages
@@ -21,7 +21,7 @@ jobs:
       - name: generate package
         run: bundle exec rake package
 
-    - name: release
-      uses: softprops/action-gh-release@v1
-      with:
-        files: pkg/*.tar.xz
+      - name: release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: pkg/*.tar.xz
