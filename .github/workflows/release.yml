@@ -8,12 +8,22 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
     steps:
       - uses: actions/checkout@v3
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2'
           bundler-cache: true
+
+      - name: restore cached downloads
+        id: cache-download-restore
+        uses: actions/cache/restore@v3
+        with:
+          path: downloads
+          key: ${{ runner.os }}-downloads
 
       - name: fetch all packages
         run: bundle exec rake fetch:all
@@ -25,3 +35,10 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: pkg/*.tar.xz
+
+      - name: save downloads in cache
+        id: cache-download-sav
+        uses: actions/cache/save@v3
+        with:
+          path: downloads
+          key: ${{ steps.cache-download-restore.outputs.cache-primary-key }}
