@@ -19,6 +19,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: downloads
+          key: {{ runner.os }}-downloads
 
       - name: fetch all packages
         run: bundle exec rake fetch:all
