@@ -15,7 +15,7 @@ SUPPORTED_PLATFORMS = %w(
   x86_64-apple-darwin20.0
 )
 
-HAVERSACK_VERSION = "0.1.3"
+HAVERSACK_VERSION = "0.1.4"
 
 directory "downloads"
 directory "lib"
