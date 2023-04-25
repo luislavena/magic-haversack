@@ -48,6 +48,8 @@
   files:
     - libevent.a
     - libevent.pc
+    - libevent_pthreads.a
+    - libevent_pthreads.pc
   binaries:
     - platform: aarch64-linux-musl
       urls:
