@@ -207,9 +207,9 @@
     - platform: aarch64-linux-musl
       urls:
         - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/aarch64/zlib-static-1.2.13-r1.apk
-          sha256: "bc2f77dc13354873507066db523a99c17511afaf512a82b15d83e82c6a82d9cf"
+          sha256: "92fc80f4fdc103cfe31416c1aa6ba31341bb0f23400f4bc582969a3822a38715"
         - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/aarch64/zlib-dev-1.2.13-r1.apk
-          sha256: "24f0c11d7c0d851b4ca5e5b48fa91b7d5bf1b5954f154a5d154a043d0f1bece5"
+          sha256: "e86b4b5ea3479a9d40b39b8f499c4b1fb884a23459bdc7000449547e314e5f2a"
     - platform: x86_64-linux-musl
       urls:
         - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/x86_64/zlib-static-1.2.13-r1.apk
