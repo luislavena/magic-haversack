@@ -71,7 +71,7 @@
       sha256: "45758b448d82b82b6bea52bc9a72593ef22f04ebdaa4b4230cadf12768252e22"
 
 - name: openssl
-  version: "3.1.2"
+  version: "3.1.3"
   # alpine package: openssl-libs-static, openssl-dev
   # homebrew formulae: openssl@3
   files:
@@ -83,22 +83,22 @@
   binaries:
     - platform: aarch64-linux-musl
       urls:
-        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/aarch64/openssl-libs-static-3.1.2-r0.apk
-          sha256: "ab387a0fbd9f867eecf1203bbbdd935e107b5ef3e86a2bb08f249423debf506e"
-        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/aarch64/openssl-dev-3.1.2-r0.apk
-          sha256: "1ffcbdb8ef2ed27e20541eb0dda62f1dd16d22c8d0421c7dcf1f64fb71af8945"
+        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/aarch64/openssl-libs-static-3.1.3-r0.apk
+          sha256: "e976794572ab10cc1c940d63903fee5fb4b2ba35a2a5ab3d31f93db5b1c0834a"
+        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/aarch64/openssl-dev-3.1.3-r0.apk
+          sha256: "f557f92bd6bff2761470d0dc70fbe400227d4e9d2e4375dd3d74f651c8b55b6b"
     - platform: x86_64-linux-musl
       urls:
-        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/x86_64/openssl-libs-static-3.1.2-r0.apk
-          sha256: "0d933523c90bc0d8fa7672684d0abcd4741eee27ec89fd5fcb8fd26a705853a1"
-        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/x86_64/openssl-dev-3.1.2-r0.apk
-          sha256: "5a125f8f8e9b52543c99e5d20ba226bf7d8051466821eb420e768c90ca7f4e02"
+        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/x86_64/openssl-libs-static-3.1.3-r0.apk
+          sha256: "8fb2bae10835471830934855881dde990cbe28975e7aadcd962e3f3abbb3ae52"
+        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/x86_64/openssl-dev-3.1.3-r0.apk
+          sha256: "489b0c9f392aeca7524b1850ced7dbe64e8f0ba30884377d6b56fc25251e7307"
     - platform: aarch64-apple-darwin20.0
-      url: https://ghcr.io/v2/homebrew/core/openssl/3/blobs/sha256:6a0a17074695a4da0066543cdd23e8e4904ae718108b6415a9daa23af97ad0df
-      sha256: "6a0a17074695a4da0066543cdd23e8e4904ae718108b6415a9daa23af97ad0df"
+      url: https://ghcr.io/v2/homebrew/core/openssl/3/blobs/sha256:becff25b568741734f1026bfadc774447a66b025e91630e75b9ad8f0bb2250cb
+      sha256: "becff25b568741734f1026bfadc774447a66b025e91630e75b9ad8f0bb2250cb"
     - platform: x86_64-apple-darwin20.0
-      url: https://ghcr.io/v2/homebrew/core/openssl/3/blobs/sha256:23b87e2e71c62a0128d1731af6e9a2d2eb4b741319b257e52aacb6994b7b6414
-      sha256: "23b87e2e71c62a0128d1731af6e9a2d2eb4b741319b257e52aacb6994b7b6414"
+      url: https://ghcr.io/v2/homebrew/core/openssl/3/blobs/sha256:54a0798dcff31fc2840554213157b1acd31ee862ccce8554dd3c6860583178b7
+      sha256: "54a0798dcff31fc2840554213157b1acd31ee862ccce8554dd3c6860583178b7"
 
 - name: pcre
   version: "8.45"
