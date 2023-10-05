@@ -8,10 +8,10 @@
     - bdw-gc.pc
   binaries:
     - platform: aarch64-linux-musl
-      url: https://dl-cdn.alpinelinux.org/alpine/v3.17/main/aarch64/gc-dev-8.2.2-r0.apk
+      url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/aarch64/gc-dev-8.2.2-r2.apk
       sha256: "35cda4e10d5fc2aa35fda951df9a0fcd83ddcab7fb3afbf9a02d250cc424f4b9"
     - platform: x86_64-linux-musl
-      url: https://dl-cdn.alpinelinux.org/alpine/v3.17/main/x86_64/gc-dev-8.2.2-r0.apk
+      url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/x86_64/gc-dev-8.2.2-r2.apk
       sha256: "2212d2dc576823ebcf98ad9679d43375045b22862c0ec02f7fe80e518f55792e"
     - platform: aarch64-apple-darwin20.0
       url: https://ghcr.io/v2/homebrew/core/bdw-gc/blobs/sha256:162892760401052a1a6d6cb183bb6683c18905377489b9bf50151a80c816f967
@@ -29,10 +29,10 @@
     - gmp.pc
   binaries:
     - platform: aarch64-linux-musl
-      url: https://dl-cdn.alpinelinux.org/alpine/v3.17/main/aarch64/gmp-dev-6.2.1-r2.apk
+      url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/aarch64/gmp-dev-6.2.1-r3.apk
       sha256: "0e1fb3ca24ec25ecff5027d5ddb2acdca8257bfa0493dc9eb6f11660ffbdcb67"
     - platform: x86_64-linux-musl
-      url: https://dl-cdn.alpinelinux.org/alpine/v3.17/main/x86_64/gmp-dev-6.2.1-r2.apk
+      url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/x86_64/gmp-dev-6.2.1-r3.apk
       sha256: "893afa4b89cae681c5875571e651dc87cfe48f28997ad299e172a9e09287ab9f"
     - platform: aarch64-apple-darwin20.0
       url: https://ghcr.io/v2/homebrew/core/gmp/blobs/sha256:491220f1ff2c662b96295d931a80702523eeaee681d7305fb02b561e527dcbb8
@@ -53,16 +53,16 @@
   binaries:
     - platform: aarch64-linux-musl
       urls:
-        - url: https://dl-cdn.alpinelinux.org/alpine/v3.17/main/aarch64/libevent-static-2.1.12-r5.apk
-          sha256: "ae5c5dca9dbd4c847e3aad8672a16b393dd4fc7e7b3e6e115d109d5704d7a817"
-        - url: https://dl-cdn.alpinelinux.org/alpine/v3.17/main/aarch64/libevent-dev-2.1.12-r5.apk
-          sha256: "449a656e3b4a0965e5ed30b4694e26e3f5a6411f7deb4c693b9dbcf559e58c04"
+        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/aarch64/libevent-static-2.1.12-r6.apk
+          sha256: "8d00519c5177e07471a3c7b0441b8d11bb64935a59809a888a681350b67bb4ad"
+        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/aarch64/libevent-dev-2.1.12-r6.apk
+          sha256: "e649b0f7a4af2787e38ebe2082c4b12ebe0e46881e6ba7b1a5a934cd3869694e"
     - platform: x86_64-linux-musl
       urls:
-        - url: https://dl-cdn.alpinelinux.org/alpine/v3.17/main/x86_64/libevent-static-2.1.12-r5.apk
-          sha256: "f0b924232b4ab7b3def5cb960872df25adfc59b586d2befa0568e09f2cb379fe"
-        - url: https://dl-cdn.alpinelinux.org/alpine/v3.17/main/x86_64/libevent-dev-2.1.12-r5.apk
-          sha256: "6fce2b2c0d7ce4a407535ad576f1b026948aaeaf06e0e007cb3226b2978b3a90"
+        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/x86_64/libevent-static-2.1.12-r6.apk
+          sha256: "c80052235c415526885d587739ca892513662bd5eefb9c37df1b6ec6bb003697"
+        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/x86_64/libevent-dev-2.1.12-r6.apk
+          sha256: "a8e50e4dbfebdbba2f6b35e6e344df2f33b7a80059b29fe54bd525c485973431"
     - platform: aarch64-apple-darwin20.0
       url: https://ghcr.io/v2/homebrew/core/libevent/blobs/sha256:53ca41440aee8d770530b0de6e655d570028afe0a99ed0e4e16f83af29e06ecb
       sha256: "53ca41440aee8d770530b0de6e655d570028afe0a99ed0e4e16f83af29e06ecb"
@@ -71,9 +71,9 @@
       sha256: "45758b448d82b82b6bea52bc9a72593ef22f04ebdaa4b4230cadf12768252e22"
 
 - name: openssl
-  version: "3.0.8"
+  version: "3.1.3"
   # alpine package: openssl-libs-static, openssl-dev
-  # homebrew formulae: openssl@3.0
+  # homebrew formulae: openssl@3
   files:
     - libcrypto.a
     - libcrypto.pc
@@ -83,22 +83,22 @@
   binaries:
     - platform: aarch64-linux-musl
       urls:
-        - url: https://dl-cdn.alpinelinux.org/alpine/v3.17/main/aarch64/openssl-libs-static-3.0.8-r3.apk
-          sha256: "f747c4df50e8d6db47cebf504586bd8b7df3337f50a0051ee0fd40de693dfdb1"
-        - url: https://dl-cdn.alpinelinux.org/alpine/v3.17/main/aarch64/openssl-dev-3.0.8-r3.apk
-          sha256: "5faa12d5db0190642b95d5193dd10a61c02a491fe55bd564c4d513dbb10db577"
+        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/aarch64/openssl-libs-static-3.1.3-r0.apk
+          sha256: "e976794572ab10cc1c940d63903fee5fb4b2ba35a2a5ab3d31f93db5b1c0834a"
+        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/aarch64/openssl-dev-3.1.3-r0.apk
+          sha256: "f557f92bd6bff2761470d0dc70fbe400227d4e9d2e4375dd3d74f651c8b55b6b"
     - platform: x86_64-linux-musl
       urls:
-        - url: https://dl-cdn.alpinelinux.org/alpine/v3.17/main/x86_64/openssl-libs-static-3.0.8-r3.apk
-          sha256: "b96fffd0939db1974aa5ccc572ddaafa6669924ec2d8832ff808967d8e9dc8f5"
-        - url: https://dl-cdn.alpinelinux.org/alpine/v3.17/main/x86_64/openssl-dev-3.0.8-r3.apk
-          sha256: "199f5f4c485a1a9d181f34b207184d917483643da870090e97262a2914b4a31d"
+        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/x86_64/openssl-libs-static-3.1.3-r0.apk
+          sha256: "8fb2bae10835471830934855881dde990cbe28975e7aadcd962e3f3abbb3ae52"
+        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/x86_64/openssl-dev-3.1.3-r0.apk
+          sha256: "489b0c9f392aeca7524b1850ced7dbe64e8f0ba30884377d6b56fc25251e7307"
     - platform: aarch64-apple-darwin20.0
-      url: https://ghcr.io/v2/homebrew/core/openssl/3.0/blobs/sha256:46aba17269f861d709a708914347d65a0a126781c1baebcbd7e18a8adede576d
-      sha256: "46aba17269f861d709a708914347d65a0a126781c1baebcbd7e18a8adede576d"
+      url: https://ghcr.io/v2/homebrew/core/openssl/3/blobs/sha256:becff25b568741734f1026bfadc774447a66b025e91630e75b9ad8f0bb2250cb
+      sha256: "becff25b568741734f1026bfadc774447a66b025e91630e75b9ad8f0bb2250cb"
     - platform: x86_64-apple-darwin20.0
-      url: https://ghcr.io/v2/homebrew/core/openssl/3.0/blobs/sha256:f62ab4c4fd6f33b32ba44d23482fb998b0ac8b1ca07c8e3083ccfe94fe2d1bd9
-      sha256: "f62ab4c4fd6f33b32ba44d23482fb998b0ac8b1ca07c8e3083ccfe94fe2d1bd9"
+      url: https://ghcr.io/v2/homebrew/core/openssl/3/blobs/sha256:54a0798dcff31fc2840554213157b1acd31ee862ccce8554dd3c6860583178b7
+      sha256: "54a0798dcff31fc2840554213157b1acd31ee862ccce8554dd3c6860583178b7"
 
 - name: pcre
   version: "8.45"
@@ -109,10 +109,10 @@
     - libpcre.pc
   binaries:
     - platform: aarch64-linux-musl
-      url: https://dl-cdn.alpinelinux.org/alpine/v3.17/main/aarch64/pcre-dev-8.45-r2.apk
+      url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/aarch64/pcre-dev-8.45-r3.apk
       sha256: "a01dbff9edef879de4713303c7ff0e50add8b43e2a44bf19dc26d8ea60a14506"
     - platform: x86_64-linux-musl
-      url: https://dl-cdn.alpinelinux.org/alpine/v3.17/main/x86_64/pcre-dev-8.45-r2.apk
+      url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/x86_64/pcre-dev-8.45-r3.apk
       sha256: "7b3b54a546c7a6e7e64f791b2126e7fea9659e0dd094866dd4a6ceb1c459a30f"
     - platform: aarch64-apple-darwin20.0
       url: https://ghcr.io/v2/homebrew/core/pcre/blobs/sha256:2d6bfcafce9da9739e32ee433087e69a78cda3f18291350953e6ad260fefc50b
@@ -130,10 +130,10 @@
     - libpcre2-8.pc
   binaries:
     - platform: aarch64-linux-musl
-      url: https://dl-cdn.alpinelinux.org/alpine/v3.17/main/aarch64/pcre2-dev-10.42-r0.apk
+      url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/aarch64/pcre2-dev-10.42-r1.apk
       sha256: "64c664c729871e56b552e6ecb726e8e66444b500956f5dd9b8b7bed90aa90483"
     - platform: x86_64-linux-musl
-      url: https://dl-cdn.alpinelinux.org/alpine/v3.17/main/x86_64/pcre2-dev-10.42-r0.apk
+      url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/x86_64/pcre2-dev-10.42-r1.apk
       sha256: "c0bb9d03c52d32fc2a88a43c5e5404230c0b24a4e53a761700cb54896f2d159b"
     - platform: aarch64-apple-darwin20.0
       url: https://ghcr.io/v2/homebrew/core/pcre2/blobs/sha256:69483f445671a54f0e03f96b7ef41218913f793a84c32cf98de1e79aa029fbf1
@@ -143,7 +143,7 @@
       sha256: "1d858ca3171ba18bc70ca3980bafca1ce5ec65eb6550ff87d4f5facae0dd3b32"
 
 - name: sqlite
-  version: "3.40.1"
+  version: "3.41.2"
   # alpine package: sqlite-static, sqlite-dev
   # homebrew formulae: sqlite
   files:
@@ -152,22 +152,22 @@
   binaries:
     - platform: aarch64-linux-musl
       urls:
-        - url: https://dl-cdn.alpinelinux.org/alpine/v3.17/main/aarch64/sqlite-static-3.40.1-r0.apk
-          sha256: "ec1710128e6c07f1e2adab588e03a6277bdb81b9c9f5e1d967c8b67d597f1ce8"
-        - url: https://dl-cdn.alpinelinux.org/alpine/v3.17/main/aarch64/sqlite-dev-3.40.1-r0.apk
-          sha256: "aab33a37d7fdde4572fc280026507b22e94e553e5e1bdfa5b4a753132a23715d"
+        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/aarch64/sqlite-static-3.41.2-r2.apk
+          sha256: "b29626bfc923908bbefa45e1da10a102b8bb0315792ec84776c82a7570965513"
+        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/aarch64/sqlite-dev-3.41.2-r2.apk
+          sha256: "f726fa8cd32faa0ea099dd48a99c5ba2109ebadb7287ef11fe205f46ed0e8a53"
     - platform: x86_64-linux-musl
       urls:
-        - url: https://dl-cdn.alpinelinux.org/alpine/v3.17/main/x86_64/sqlite-static-3.40.1-r0.apk
-          sha256: "a8602d058ce5bd43b9aa915f629126dd7dfb470bd425956dec0129f0fe967697"
-        - url: https://dl-cdn.alpinelinux.org/alpine/v3.17/main/x86_64/sqlite-dev-3.40.1-r0.apk
-          sha256: "871a1b129e58f205cb8aea6081c4cb7f30553bbe46712703bd0ee6b73d0b8142"
+        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/x86_64/sqlite-static-3.41.2-r2.apk
+          sha256: "3633781ea836c1173b393c7396af0fb779c2d61df524cfb7990c07a885ddafe3"
+        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/x86_64/sqlite-dev-3.41.2-r2.apk
+          sha256: "43f98076a0c5a9921b18767f226370f25fcd43512beb3b25151e75f63c40dceb"
     - platform: aarch64-apple-darwin20.0
-      url: https://ghcr.io/v2/homebrew/core/sqlite/blobs/sha256:1dce645628978038d4615669728089f9e22259a8c461f5d81672b741189f1f29
-      sha256: "1dce645628978038d4615669728089f9e22259a8c461f5d81672b741189f1f29"
+      url: https://ghcr.io/v2/homebrew/core/sqlite/blobs/sha256:78d4c5470ab9287a5abc1f3d8bafe92d6d416ec375cbd3650ecb26ff1b0531ae
+      sha256: "78d4c5470ab9287a5abc1f3d8bafe92d6d416ec375cbd3650ecb26ff1b0531ae"
     - platform: x86_64-apple-darwin20.0
-      url: https://ghcr.io/v2/homebrew/core/sqlite/blobs/sha256:c2b7d4f849d7af7e8be3c738e9670842c9c6b25053fd19a90ef8264b2a257158
-      sha256: "c2b7d4f849d7af7e8be3c738e9670842c9c6b25053fd19a90ef8264b2a257158"
+      url: https://ghcr.io/v2/homebrew/core/sqlite/blobs/sha256:5fb0686e712e6623bee8bc1ef2cac08585fba4a6e5b3d5962b4a8f1f22c11edd
+      sha256: "5fb0686e712e6623bee8bc1ef2cac08585fba4a6e5b3d5962b4a8f1f22c11edd"
 
 - name: yaml
   version: "0.2.5"
@@ -179,16 +179,16 @@
   binaries:
     - platform: aarch64-linux-musl
       urls:
-        - url: https://dl-cdn.alpinelinux.org/alpine/v3.17/main/aarch64/yaml-static-0.2.5-r0.apk
-          sha256: "543333d85e6ae3f7432058b6a3d6ca0d3e9b49a357c9ab25572d8d1e50d6d7e4"
-        - url: https://dl-cdn.alpinelinux.org/alpine/v3.17/main/aarch64/yaml-dev-0.2.5-r0.apk
-          sha256: "78b61923d588789e00cd29ca1da2c538731fd49aafeb0a8f641ea5fc4a25a7f2"
+        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/aarch64/yaml-static-0.2.5-r1.apk
+          sha256: "f65abf8794dc201defa388378b50a35061a191389b9e1c4d0e6c1e8db2efb730"
+        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/aarch64/yaml-dev-0.2.5-r1.apk
+          sha256: "5d5f2bbf2f74381f1591286f07e41db472e030b33bcb09a5b1f7cc78b1f83d01"
     - platform: x86_64-linux-musl
       urls:
-        - url: https://dl-cdn.alpinelinux.org/alpine/v3.17/main/x86_64/yaml-static-0.2.5-r0.apk
-          sha256: "caa508af043ca480a6939dcdd20b1561cc19e4cc2240545b9600781713a8d4c1"
-        - url: https://dl-cdn.alpinelinux.org/alpine/v3.17/main/x86_64/yaml-dev-0.2.5-r0.apk
-          sha256: "61fe870be25972748eeb3c33ca4c79735b937c93a4c19797c7db5c9269deedf6"
+        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/x86_64/yaml-static-0.2.5-r1.apk
+          sha256: "4cfcc2e5b78976baee42c157a8fa90e071b71d6b0cb9d3da752d9a295abe0cca"
+        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/x86_64/yaml-dev-0.2.5-r1.apk
+          sha256: "8fe18a91a6351d114ec7f3d2459886d833a6509dbd5ae9632c59ec2fbd0910b7"
     - platform: aarch64-apple-darwin20.0
       url: https://ghcr.io/v2/homebrew/core/libyaml/blobs/sha256:fe1082f3475a144261b41e2c3e0728b9331911b1cbfadfbc1f3d70d454709154
       sha256: "fe1082f3475a144261b41e2c3e0728b9331911b1cbfadfbc1f3d70d454709154"
@@ -206,16 +206,16 @@
   binaries:
     - platform: aarch64-linux-musl
       urls:
-        - url: https://dl-cdn.alpinelinux.org/alpine/v3.17/main/aarch64/zlib-static-1.2.13-r0.apk
-          sha256: "21a656af684489a2cce482ba1e77755b7ec8b929e48d81c5b3d70ebc0f1f60d8"
-        - url: https://dl-cdn.alpinelinux.org/alpine/v3.17/main/aarch64/zlib-dev-1.2.13-r0.apk
-          sha256: "ee51f7d3e0cef296d6c18c7cb058b2917a191af614e723c6e52856af7fc912fe"
+        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/aarch64/zlib-static-1.2.13-r1.apk
+          sha256: "92fc80f4fdc103cfe31416c1aa6ba31341bb0f23400f4bc582969a3822a38715"
+        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/aarch64/zlib-dev-1.2.13-r1.apk
+          sha256: "e86b4b5ea3479a9d40b39b8f499c4b1fb884a23459bdc7000449547e314e5f2a"
     - platform: x86_64-linux-musl
       urls:
-        - url: https://dl-cdn.alpinelinux.org/alpine/v3.17/main/x86_64/zlib-static-1.2.13-r0.apk
-          sha256: "56cd53ab92f7a11f34e199a9a0d75f44930af20f8dd64a0d2e1a29a9214438ef"
-        - url: https://dl-cdn.alpinelinux.org/alpine/v3.17/main/x86_64/zlib-dev-1.2.13-r0.apk
-          sha256: "09380f1b236bc0ef565af66de9d5ab79d8baf1207fd14f08d32af1460fb3b963"
+        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/x86_64/zlib-static-1.2.13-r1.apk
+          sha256: "096e193c2a6d2dcc8e01e54577d6e83fbaf4d53b625d51c438496cfbe2df09bb"
+        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/x86_64/zlib-dev-1.2.13-r1.apk
+          sha256: "c45e9765ac82ba9a74a20e224f345db6c341342c31ca09be48c9c3b995c9998d"
     - platform: aarch64-apple-darwin20.0
       url: https://ghcr.io/v2/homebrew/core/zlib/blobs/sha256:5dfa4fd7fb89f0aff96b98965da0af7e01ef6c3b8f4a90f7b2b135e2f757783f
       sha256: "5dfa4fd7fb89f0aff96b98965da0af7e01ef6c3b8f4a90f7b2b135e2f757783f"
