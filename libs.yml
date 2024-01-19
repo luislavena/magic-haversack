@@ -83,16 +83,16 @@
   binaries:
     - platform: aarch64-linux-musl
       urls:
-        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/aarch64/openssl-libs-static-3.1.3-r0.apk
-          sha256: "e976794572ab10cc1c940d63903fee5fb4b2ba35a2a5ab3d31f93db5b1c0834a"
-        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/aarch64/openssl-dev-3.1.3-r0.apk
-          sha256: "f557f92bd6bff2761470d0dc70fbe400227d4e9d2e4375dd3d74f651c8b55b6b"
+        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/aarch64/openssl-libs-static-3.1.4-r4.apk
+          sha256: "b8a52bd401c65b47a8350c8501f77bf5799dbeb2bfd0a45a19f9bcb4af1c5512"
+        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/aarch64/openssl-dev-3.1.4-r4.apk
+          sha256: "9504e9675949a4b89d1f24e1d224ed5145b845c991e7c9c214d6ce064dfcec9e"
     - platform: x86_64-linux-musl
       urls:
-        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/x86_64/openssl-libs-static-3.1.3-r0.apk
-          sha256: "8fb2bae10835471830934855881dde990cbe28975e7aadcd962e3f3abbb3ae52"
-        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/x86_64/openssl-dev-3.1.3-r0.apk
-          sha256: "489b0c9f392aeca7524b1850ced7dbe64e8f0ba30884377d6b56fc25251e7307"
+        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/x86_64/openssl-libs-static-3.1.4-r4.apk
+          sha256: "ca65dc6407d3fd02d9e0a3daee15f09ff4c9c8f3b533cf0585f5c9f82e7b7f61"
+        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/x86_64/openssl-dev-3.1.4-r4.apk
+          sha256: "aa6027891f3177f9db5b925a16089efea61971c1fa285ec1cfd61fcc6d10c564"
     - platform: aarch64-apple-darwin20.0
       url: https://ghcr.io/v2/homebrew/core/openssl/3/blobs/sha256:becff25b568741734f1026bfadc774447a66b025e91630e75b9ad8f0bb2250cb
       sha256: "becff25b568741734f1026bfadc774447a66b025e91630e75b9ad8f0bb2250cb"
@@ -152,16 +152,16 @@
   binaries:
     - platform: aarch64-linux-musl
       urls:
-        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/aarch64/sqlite-static-3.41.2-r2.apk
-          sha256: "b29626bfc923908bbefa45e1da10a102b8bb0315792ec84776c82a7570965513"
-        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/aarch64/sqlite-dev-3.41.2-r2.apk
-          sha256: "f726fa8cd32faa0ea099dd48a99c5ba2109ebadb7287ef11fe205f46ed0e8a53"
+        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/aarch64/sqlite-static-3.41.2-r3.apk
+          sha256: "45aa21fbb0a90b2e1d83f55164c00789abb339977967d84b31e6f0113d85776b"
+        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/aarch64/sqlite-dev-3.41.2-r3.apk
+          sha256: "e2120046a4eadefad7b4096d96c4c39035521860907565540dd97932bc76b0a0"
     - platform: x86_64-linux-musl
       urls:
-        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/x86_64/sqlite-static-3.41.2-r2.apk
-          sha256: "3633781ea836c1173b393c7396af0fb779c2d61df524cfb7990c07a885ddafe3"
-        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/x86_64/sqlite-dev-3.41.2-r2.apk
-          sha256: "43f98076a0c5a9921b18767f226370f25fcd43512beb3b25151e75f63c40dceb"
+        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/x86_64/sqlite-static-3.41.2-r3.apk
+          sha256: "492f8d95f4253647c18cd1bdbe638e4580f34294bf6144532a6a18f24a85f4f6"
+        - url: https://dl-cdn.alpinelinux.org/alpine/v3.18/main/x86_64/sqlite-dev-3.41.2-r3.apk
+          sha256: "19743420846b5555eb9fd513bcb1679b25565232ca1bf880d093b3eddacc5fdf"
     - platform: aarch64-apple-darwin20.0
       url: https://ghcr.io/v2/homebrew/core/sqlite/blobs/sha256:78d4c5470ab9287a5abc1f3d8bafe92d6d416ec375cbd3650ecb26ff1b0531ae
       sha256: "78d4c5470ab9287a5abc1f3d8bafe92d6d416ec375cbd3650ecb26ff1b0531ae"
