@@ -136,7 +136,7 @@ _bsd_stat_readlink() {
 ################## https://github.com/mkropat/sh-realpath #####################
 
 TARGET_TRIPLET="x86_64-macos.11-none"
-TARGET_PLATFORM="x86_64-apple-darwin20.0"
+TARGET_PLATFORM="x86_64-apple-darwin21.0"
 SDK_VERSION="${SDK_VERSION:-11}"
 
 SCRIPT_PATH=$(realpath "$0")
