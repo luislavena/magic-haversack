@@ -11,8 +11,8 @@ require_relative "src/custom_portile"
 SUPPORTED_PLATFORMS = %w(
   aarch64-linux-musl
   x86_64-linux-musl
-  aarch64-apple-darwin20.0
-  x86_64-apple-darwin20.0
+  aarch64-apple-darwin21.0
+  x86_64-apple-darwin21.0
 )
 
 HAVERSACK_VERSION = "0.4.0"
